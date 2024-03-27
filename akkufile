@@ -28,9 +28,8 @@ pipeline {
    }
     stage('Push the Docker image'){
       steps{
-        withCredentials([usernamePassword(credentialsId: '5f3a7bbd-c257-4562-a54e-4b385287ca40', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
+        withCredentials([usernamePassword(credentialsId: '5f3a7bbd-c257-4562-a54e-4b385287ca40', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')])
         sh 'docker login -u ${env.dockeruser} -p ${dockerpass}'
-    }
       }
     }
     stage('Push the Docker image'){
