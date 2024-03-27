@@ -32,10 +32,5 @@ pipeline {
         sh 'docker login -u ${env.dockeruser} -p ${dockerpass}'
       }
     }
-    stage('Push the Docker image'){
-      steps {
-        sh 'docker push 12akverma123/insure_me_app:1.0'
-      }
-    }
   }
 }
