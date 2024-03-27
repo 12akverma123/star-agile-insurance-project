@@ -4,13 +4,13 @@ pipeline {
         maven 'M2_HOME'
     }
     stages {
-        stage('Git Checkout')
-            steps {
+        stage('Git checkout')
+            steps{
                 echo 'This is for cloning the GitRepo'
                 git "https://github.com/12akverma123/star-agile-insurance-project.git"
         }
         stage ('Publish the HTML') {
-            steps {
+            steps{
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure-Project/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
         }
