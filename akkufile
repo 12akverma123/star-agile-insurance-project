@@ -21,9 +21,10 @@ pipeline {
          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure-Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
       }
     }
-    stage('Create a Docker image from the package Insure-Me.jar file')
+    stage('Create a Docker image from the package Insure-Me.jar file'){
       steps{
         sh 'docker build -t 12akverma123/insure_me_app:1.0 .'
       }
    }
+}
 }
