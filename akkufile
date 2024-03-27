@@ -10,9 +10,15 @@ pipeline {
          git "https://github.com/12akverma123/star-agile-insurance-project.git"
       }
     }
+    stage('Create a Package'){
+      steps{
+         echo "This will create a package using maven"
+         sh 'mvn package'
+      }
+    }
     stage('Publish the HTML reports'){
       steps{
-          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure-Project/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure-Project/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
       }
     }
    }
