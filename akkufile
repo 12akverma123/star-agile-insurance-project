@@ -37,5 +37,5 @@ pipeline {
         sh 'docker push 12akverma123/insure_me_app:1.0'
       }
     }
-}
+  }
 }
