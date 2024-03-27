@@ -6,7 +6,7 @@ pipeline {
   stages {
    stage('Git checkout')
      steps {
-        echo "This is for cloning the gitrep'
+        echo "This is for cloning the gitrep"
         git 'https://github.com/12akverma123/star-agile-insurance-project.git'
      }
   }
