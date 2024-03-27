@@ -1,18 +1,19 @@
 pipeline {
-    agent any
-    tools {
-        maven 'M2_HOME'
+  agent any
+    tools{
+      maven 'M2_HOME'
     }
-    stages {
-        stage('Git checkout')
-            steps{
-                echo 'This is for cloning the GitRepo'
-                git "https://github.com/12akverma123/star-agile-insurance-project.git"
-        }
-        stage ('Publish the HTML') {
-            steps{
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure-Project/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-            }
-        }
+   stages{
+    stage('Git checkout'){
+      steps{
+         echo 'This is for cloning the Gitrepo'
+         git "https://github.com/12akverma123/star-agile-insurance-project.git"
+      }
     }
+    stage('Publish the HTML reports'){
+      steps{
+          publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure-Project/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+      }
+    }
+   }
 }
