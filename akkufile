@@ -46,7 +46,7 @@ pipeline {
     }
     stage('ansible config and deployment'){
       steps{
-         ansiblePlaybook credentialsId: 'ansible-ssh-new4', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible.yml', vaultTmpPath: ''
+         ansiblePlaybook credentialsId: 'c1c63579-cc6b-46cc-96ce-f1ec7fde805d', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible.yml', vaultTmpPath: ''
       }
     }
   }
