@@ -38,6 +38,12 @@ pipeline {
          sh 'docker push 12akverma123/insure_me_app:1.0'
       }
     }
+    stage('find out the username'){
+      steps{
+         sh 'whoami'
+         sh 'who'
+      }
+    }
     stage('ansible config and deployment'){
       steps{
          ansiblePlaybook credentialsId: 'ansible-ssh-new3', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible.yml', vaultTmpPath: ''
